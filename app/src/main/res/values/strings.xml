@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Nieruchomosci</string>
+    <string name="login">Zaloguj</string>
+    <string name="login_label">Login</string>
+    <string name="password_label">Hasło</string>
+    <string name="save_login">Zapamiętaj dane logowania</string>
+    <string name="footer_text">\@Apator Rector 2022</string>
 </resources>
