@@ -8,6 +8,6 @@ class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        print("Hello")
+        print("Hello from Source-tree")
     }
 }
