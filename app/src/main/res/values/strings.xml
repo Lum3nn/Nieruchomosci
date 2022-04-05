@@ -5,4 +5,8 @@
     <string name="password_label">Hasło</string>
     <string name="save_login">Zapamiętaj dane logowania</string>
     <string name="footer_text">\@Apator Rector 2022</string>
+    <string name="dialog_neutral_btn">Ok</string>
+    <string name="empty_note_alert">Wszystkie pola są wymagane</string>
+    <string name="firebase_alert">Coś poszło nie tak… spróbuj póżniej</string>
+    <string name="invalid_data">Dane są niepoprawne!</string>
 </resources>

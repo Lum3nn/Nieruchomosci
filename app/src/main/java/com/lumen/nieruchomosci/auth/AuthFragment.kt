@@ -7,6 +7,10 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.lumen.nieruchomosci.R
+import com.lumen.nieruchomosci.commons.FailReason
+import com.lumen.nieruchomosci.commons.DataResult
 import com.lumen.nieruchomosci.databinding.AuthFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,12 +35,24 @@ class AuthFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.hide()
 
         binding.loginButton.setOnClickListener {
-
             val login = binding.loginInput.toString().trim()
             val password = binding.passwordInput.toString().trim()
             viewModel.login(login, password)
-
         }
+
+        viewModel.result.observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is DataResult.Fail -> showDialog(result.failReason)
+                DataResult.Success -> {}
+            }
+        }
+    }
+
+    private fun showDialog(failReason: FailReason) {
+        MaterialAlertDialogBuilder(requireContext())
+            .setMessage(failReason.toLocalizeString(resources))
+            .setNeutralButton(resources.getString(R.string.dialog_neutral_btn)) { dialog, which -> }
+            .show()
     }
 
     override fun onDestroyView() {
