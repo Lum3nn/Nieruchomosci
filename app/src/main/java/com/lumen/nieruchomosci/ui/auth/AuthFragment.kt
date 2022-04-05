@@ -1,4 +1,4 @@
-package com.lumen.nieruchomosci.auth
+package com.lumen.nieruchomosci.ui.auth
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,6 +13,7 @@ import com.lumen.nieruchomosci.commons.FailReason
 import com.lumen.nieruchomosci.commons.DataResult
 import com.lumen.nieruchomosci.databinding.AuthFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class AuthFragment : Fragment() {
