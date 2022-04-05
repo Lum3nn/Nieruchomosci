@@ -35,17 +35,21 @@ class AuthFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.hide()
 
         binding.loginButton.setOnClickListener {
-            val login = binding.loginInput.toString().trim()
-            val password = binding.passwordInput.toString().trim()
+            val login = binding.loginInput.text.toString().trim()
+            val password = binding.passwordInput.text.toString().trim()
             viewModel.login(login, password)
         }
 
         viewModel.result.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is DataResult.Fail -> showDialog(result.failReason)
-                DataResult.Success -> {}
+                DataResult.Success -> { navigateToMainPanel()}
             }
         }
+    }
+
+    private fun navigateToMainPanel() {
+        
     }
 
     private fun showDialog(failReason: FailReason) {
